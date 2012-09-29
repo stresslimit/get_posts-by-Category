@@ -1,4 +1,4 @@
-get_posts---by-Category
+get_posts() grouped and ordered by Category
 =======================
 
 This class returns you an object that you can foreach() loop through, passing regular WordPress get_posts() args, and the results will be grouped by category or custom taxonomy.
