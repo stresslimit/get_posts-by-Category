@@ -36,6 +36,7 @@ class SLD_GroupBy_Taxonomy_Terms {
 		$defaults = array(
 			'posts_per_page' => -1,
 			'numberposts' => -1,
+			'tax_order' => 'ASC',
 		);
 
 		$this->orderby = !empty( $args['post_type'] ) && is_post_type_hierarchical( $args['post_type'] ) ? 'menu_order' : 'post_date';
@@ -69,7 +70,7 @@ class SLD_GroupBy_Taxonomy_Terms {
 	}
 
 	function groupby_orderby( $a='' ) {
-		return "{$this->wpdb->terms}.name, {$this->wpdb->posts}.{$this->orderby} ASC";
+		return "{$this->wpdb->terms}.name {$this->args['tax_order']}, {$this->wpdb->posts}.{$this->orderby} ASC";
 	}
 
 	function category_changed( $post ) {
